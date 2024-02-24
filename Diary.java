@@ -3,6 +3,7 @@ package src;
 import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Diary {
@@ -37,8 +38,14 @@ public class Diary {
         }
     }
 
-    public void addEntry(String title, String body) {
-        if
+    public void addEntry(Diary diary, Entry entry) {
+        if (diary != null && !diary.isLocked()) {}
+
+        diary.getEntries().add(entry);
+    }
+
+    private Calendar getEntries() {
+        return null;
     }
 
 
