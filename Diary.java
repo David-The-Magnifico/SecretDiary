@@ -48,6 +48,14 @@ public class Diary {
         return null;
     }
 
+    public void deleteEntry(Diary diary){
+        if (diary != null) {
+            diaries.remove(diary);
+        }
+    }
+    
+    
+
 
     //create new diary
     //lock diary
