@@ -62,3 +62,7 @@ public class Diary {
             locked = false;
         }
     }
+
+    public String getUsername() {
+        return username;
+    }
