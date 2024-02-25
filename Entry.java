@@ -7,10 +7,10 @@ public class Entry {
     private String title, body;
 
     public Entry(String title, String body) {
+        int nextId = 0;
+        this.id = nextId++;
         this.title = title;
         this.body = body;
-        this.dateCreated = LocalDateTime.now();
-        this.id = 0;
     }
 
     public int getId() {
