@@ -13,5 +13,7 @@ public class User {
     	}
 
 	public void lockDiary() {
-        secretDiary.lock();
-    }
+        	secretDiary.lock();
+    	}
+
+	
