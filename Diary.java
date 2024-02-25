@@ -6,7 +6,7 @@ import java.util.List;
 public class Diary {
     private String username, password;
     private boolean isLocked;
-    private List<Entry> entries;
+    private Entry[] entries;
 
     public Diary(String username, String password) {
         this.username = username;
