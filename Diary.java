@@ -114,3 +114,13 @@ public class Diary {
         }
         return diaries;
     }
+
+    public Object lock() {
+        Object lock = null;
+        return lock;
+    }
+
+    public Object unlock() {
+        Object unlock = null;
+        return unlock;
+    }
