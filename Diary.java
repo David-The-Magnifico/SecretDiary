@@ -102,3 +102,15 @@ public class Diary {
     private void setEntries(Entry[] entries) {
         this.entries = entries;
     }
+
+    public static Diary[] getAllDiaries() {
+        Diary[] diaries = new Diary[0];
+        for (Diary diary : diaries) {
+            if (diary.getUsername() != null) {
+                List<Diary> diariesList = new ArrayList<>();
+                diariesList.add(diary);
+                diaries = diariesList.toArray(diaries);
+            }
+        }
+        return diaries;
+    }
