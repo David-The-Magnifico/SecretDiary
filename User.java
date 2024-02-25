@@ -9,7 +9,7 @@ public class User {
 
     public void createDiary(String username, String password) {
         Diary mySoMuchLovedDiary = new Diary(username, password);
-        mySecretDiary.add(mySoMuchLovedDiary);
+        mySecretDiary.add(mySecretDiary);
     }
 
     public void queryDiaries() {
