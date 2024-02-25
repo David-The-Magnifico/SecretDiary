@@ -1,4 +1,5 @@
 package src;
+import java.time.LocalDateTime;
 
 public class Entry {
     private int id;
@@ -11,5 +12,9 @@ public class Entry {
         this.body = body;
         this.dateCreated = LocalDateTime.now();
         this.id = 0;
+    }
+
+    public int getId() {
+        return id;
     }
 }
