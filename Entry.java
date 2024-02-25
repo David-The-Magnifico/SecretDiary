@@ -16,4 +16,3 @@ public class Entry {
     public int getId() {
         return id;
     }
-}
