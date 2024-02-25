@@ -31,3 +31,8 @@ public class User {
 	public void updateEntry(Entry entry) {
         	secretDiary.updateEntry(entry);
     	}	
+
+	public void deleteEntry(int id) {
+        secretDiary.deleteEntry(id);
+    }
+}
