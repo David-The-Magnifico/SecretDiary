@@ -78,3 +78,7 @@ public class Diary {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Entry[] getEntries() {
+        return entries;
+    }
