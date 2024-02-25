@@ -24,4 +24,6 @@ public class User {
         	return secretDiary.findEntryById(id);
     	}	
 
-	
+	public void addEntry(Entry entry) {
+        secretDiary.addEntry(entry);
+    }	
