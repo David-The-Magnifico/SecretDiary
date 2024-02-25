@@ -18,4 +18,8 @@ public class User {
 
 	public void unlockDiary() {
         	secretDiary.unlock();
-    	}	
+    	}
+
+	public Entry findEntryById(int id) {
+        return secretDiary.findEntryById(id);
+    }	
