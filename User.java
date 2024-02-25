@@ -17,5 +17,5 @@ public class User {
     	}
 
 	public void unlockDiary() {
-        secretDiary.unlock();
-    }	
+        	secretDiary.unlock();
+    	}	
