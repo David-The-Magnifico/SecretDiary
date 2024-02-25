@@ -27,3 +27,12 @@ public class Diary {
         newEntries[entries.length] = entry;
         entries = newEntries;
     }
+
+    public Entry findEntryById(int id) {
+        for (Entry entry : entries) {
+            if (entry.getId() == id) {
+                return entry;
+            }
+        }
+        return null;
+    }
