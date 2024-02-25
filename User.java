@@ -25,5 +25,5 @@ public class User {
     	}	
 
 	public void addEntry(Entry entry) {
-        secretDiary.addEntry(entry);
-    }	
+        	secretDiary.addEntry(entry);
+    	}	
