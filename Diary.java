@@ -82,3 +82,12 @@ public class Diary {
     public Entry[] getEntries() {
         return entries;
     }
+
+    public static Diary findDiaryByUsername(String username) {
+        for (Diary diary : Diary.getAllDiaries()) {
+            if (diary.getUsername().equals(username)) {
+                return diary;
+            }
+        }
+        return null;
+    }
