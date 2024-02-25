@@ -56,3 +56,9 @@ public class Diary {
     public void lockDiary() {
         locked = true;
     }
+
+    public void unlockDiary(String password) {
+        if (this.password.equals(password)) {
+            locked = false;
+        }
+    }
