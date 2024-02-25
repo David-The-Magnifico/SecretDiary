@@ -52,3 +52,7 @@ public class Diary {
     public boolean isLocked() {
         return locked;
     }
+
+    public void lockDiary() {
+        locked = true;
+    }
