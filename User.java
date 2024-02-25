@@ -21,5 +21,7 @@ public class User {
     	}
 
 	public Entry findEntryById(int id) {
-        return secretDiary.findEntryById(id);
-    }	
+        	return secretDiary.findEntryById(id);
+    	}	
+
+	
