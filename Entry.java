@@ -2,10 +2,9 @@ package src;
 import java.time.LocalDateTime;
 
 public class Entry {
+    public static int Entry;
     private int id;
-    private String title;
-    private String body;
-    private LocalDateTime dateCreated;
+    private String title, body;
 
     public Entry(String title, String body) {
         this.title = title;
