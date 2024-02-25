@@ -91,3 +91,10 @@ public class Diary {
         }
         return null;
     }
+
+    public static void deleteDiary(String username) {
+        Diary diary = findDiaryByUsername(username);
+        if (diary != null) {
+            diary.setEntries(new Entry[0]);
+        }
+    }
