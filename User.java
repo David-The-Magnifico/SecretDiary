@@ -33,6 +33,6 @@ public class User {
     	}	
 
 	public void deleteEntry(int id) {
-        secretDiary.deleteEntry(id);
-    }
+        	secretDiary.deleteEntry(id);
+    	}
 }
