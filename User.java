@@ -5,10 +5,14 @@ import java.util.List;
 
 public class User {
 
-    private final List<Diary> mySecretDiaries = new ArrayList<>();
+    private final List<Diary> mySecretDiary = new ArrayList<>();
 
     public void createDiary(String username, String password) {
         Diary mySoMuchLovedDiary = new Diary(username, password);
-        mySecretDiaries.add(mySoMuchLovedDiary);
+        mySecretDiary.add(mySoMuchLovedDiary);
+    }
+
+    public void queryDiaries() {
+        System.out.println("My secret diaries: " + mySecretDiary);
     }
 }
