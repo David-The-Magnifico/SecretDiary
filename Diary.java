@@ -7,6 +7,7 @@ public class Diary {
     private String username, password;
     private boolean isLocked;
     private Entry[] entries;
+    private int nextId;
 
     public Diary(String username, String password) {
         this.username = username;
