@@ -124,3 +124,16 @@ public class Diary {
         Object unlock = null;
         return unlock;
     }
+
+    public void updateEntry(Entry entry) {
+        Entry[] newEntries = new Entry[entries.length];
+        for (int i = 0; i < entries.length; i++) {
+            if (entries[i].getId() == entry.getId()) {
+                newEntries[i] = entry;
+            } else {
+                newEntries[i] = entries[i];
+            }
+        }
+        entries = newEntries;
+    }
+}
