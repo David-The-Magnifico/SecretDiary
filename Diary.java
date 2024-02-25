@@ -13,11 +13,12 @@ public class Diary {
 	this(userame:null, password:null);
     }
 
-    public Diary(String username, String password) {
+     public Diary(String username, String password) {
         this.username = username;
         this.password = password;
-        this.isLocked = true; //assume that diary is locked initially
-        this.entries = new ArrayList<>();
+        locked = true; //assume that the diary is locked initially
+        entries = new Entry[0];
+        nextId = 1;
     }
 
     public void unlockDiary(String password) {
