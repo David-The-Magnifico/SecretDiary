@@ -1,7 +1,5 @@
 package src;
 
-import javax.xml.crypto.Data;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -34,34 +32,46 @@ public class Diary {
     }
 
     public void createNewDiary(String title, String body) {
-        if (isLocked) {entries.add(new Entry(title, body));
+        if (isLocked) {
+            entries.add(new Entry(title, body));
         }
     }
 
     public void addEntry(Diary diary, Entry entry) {
-        if (diary != null && !diary.isLocked()) {}
-
-        diary.getEntries().add(entry);
+        if (diary != null && !diary.isLocked()) {
+            diary.getEntries().add(entry);
+        }
     }
 
     private Calendar getEntries() {
         return null;
     }
 
-    public void deleteEntry(Diary diary){
+    public void deleteEntry(Diary diary) {
         if (diary != null) {
             diaries.remove(diary);
         }
     }
-    
-    
+
+    public void updateDiary(Diary diary, String newUsername, String newPassword) {
+        if (diary != null && !diary.isLocked()) {
+            diary.setUsername(newUsername);
+            diary.setPassword(newPassword);
+        }
+    }
+
+    public Entry findEntryById(Diary diary, int id) {
+        if (diary != null && !diary.isLocked()) {
+
+            for (Entry entry : diary.getEntries()) {
+                if (entry.getId() == id) {
+                    return entry;
+                }
+            }
 
 
-    //create new diary
-    //lock diary
-    //unlock diary
-    //add entry
-    //delete entry
-    //edit entry
-    //find entry by id
+        }
+        return null;
+    }
+
 }
