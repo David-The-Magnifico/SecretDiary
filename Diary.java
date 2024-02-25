@@ -36,3 +36,15 @@ public class Diary {
         }
         return null;
     }
+
+    public void deleteEntry(int id) {
+        Entry[] newEntries = new Entry[entries.length - 1];
+        int index = 0;
+        for (Entry entry : entries) {
+            if (entry.getId() != id) {
+                newEntries[index] = entry;
+                index++;
+            }
+        }
+        entries = newEntries;
+    }
