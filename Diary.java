@@ -9,6 +9,10 @@ public class Diary {
     private Entry[] entries;
     private int nextId;
 
+    public Diary() {
+	this(userame:null, password:null);
+    }
+
     public Diary(String username, String password) {
         this.username = username;
         this.password = password;
