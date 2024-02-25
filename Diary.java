@@ -48,3 +48,7 @@ public class Diary {
         }
         entries = newEntries;
     }
+
+    public boolean isLocked() {
+        return locked;
+    }
