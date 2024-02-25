@@ -8,6 +8,8 @@ public class User {
 	private Diary secretDiary;
 
 	public void createDiary() {
-        secretDiary = new Diary();
-        secretDiary.lock();
-    }
+        	secretDiary = new Diary();
+        	secretDiary.lock();
+    	}
+
+	
