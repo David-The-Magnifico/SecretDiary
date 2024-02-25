@@ -4,8 +4,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class Diary {
-    private String username;
-    private String password;
+    private String username, password;
     private boolean isLocked;
     private List<Entry> entries;
 
