@@ -16,4 +16,6 @@ public class User {
         	secretDiary.lock();
     	}
 
-	
+	public void unlockDiary() {
+        secretDiary.unlock();
+    }	
