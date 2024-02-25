@@ -6,3 +6,8 @@ import java.util.List;
 public class User {
 
 	private Diary secretDiary;
+
+	public void createDiary() {
+        secretDiary = new Diary();
+        secretDiary.lock();
+    }
