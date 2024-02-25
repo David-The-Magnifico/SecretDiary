@@ -98,3 +98,7 @@ public class Diary {
             diary.setEntries(new Entry[0]);
         }
     }
+
+    private void setEntries(Entry[] entries) {
+        this.entries = entries;
+    }
