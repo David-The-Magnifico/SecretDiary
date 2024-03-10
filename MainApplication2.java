@@ -2,7 +2,7 @@ package src;
 
 import javax.swing.JOptionPane;
 
-public class MainApplication {
+public class MainApplication2 {
 
     public static void main(String[] args) {
         Diary diary = new Diary();
