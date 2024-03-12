@@ -1,35 +1,33 @@
 package src;
 
-import java.util.Calendar;
-import java.util.List;
+import java.util.ArrayList;
 
 public class Diary {
     private String username, password;
     private boolean isLocked;
-    private Entry[] entries;
-    private int nextId;
+    private src.Entry[] entries;
 
     public Diary() {
-	this(userame:null, password:null);
+        this(null, null);
     }
 
-     public Diary(String username, String password) {
+    public Diary(String username, String password) {
         this.username = username;
         this.password = password;
-        locked = true; //assume that the diary is locked initially
-        entries = new Entry[0];
-        nextId = 1;
+        boolean locked = true; //assume that the diary is locked initially
+        entries = new src.Entry[0];
+        int nextId = 1;
     }
 
-    public void addEntry(Entry entry) {
-        Entry[] newEntries = new Entry[entries.length + 1];
+    public void addEntry(src.Entry entry) {
+        src.Entry[] newEntries = new src.Entry[entries.length + 1];
         System.arraycopy(entries, 0, newEntries, 0, entries.length);
         newEntries[entries.length] = entry;
         entries = newEntries;
     }
 
-    public Entry findEntryById(int id) {
-        for (Entry entry : entries) {
+    public src.Entry findEntryById(int id) {
+        for (src.Entry entry : entries) {
             if (entry.getId() == id) {
                 return entry;
             }
@@ -38,10 +36,10 @@ public class Diary {
     }
 
     public void deleteEntry(int id) {
-        Entry[] newEntries = new Entry[entries.length - 1];
+        src.Entry[] newEntries = new src.Entry[entries.length - 1];
         int index = 0;
-        for (Entry entry : entries) {
-            if (entry.getId() != id) {
+        for (src.Entry entry : entries) {
+            if (entry.getId()!= id) {
                 newEntries[index] = entry;
                 index++;
             }
@@ -50,16 +48,16 @@ public class Diary {
     }
 
     public boolean isLocked() {
-        return locked;
+        return isLocked;
     }
 
     public void lockDiary() {
-        locked = true;
+        isLocked = true;
     }
 
     public void unlockDiary(String password) {
         if (this.password.equals(password)) {
-            locked = false;
+            isLocked = false;
         }
     }
 
@@ -94,20 +92,20 @@ public class Diary {
 
     public static void deleteDiary(String username) {
         Diary diary = findDiaryByUsername(username);
-        if (diary != null) {
-            diary.setEntries(new Entry[0]);
+        if (diary!= null) {
+            diary.setEntries(new src.Entry[0]);
         }
     }
 
-    private void setEntries(Entry[] entries) {
+    private void setEntries(src.Entry[] entries) {
         this.entries = entries;
     }
 
     public static Diary[] getAllDiaries() {
         Diary[] diaries = new Diary[0];
         for (Diary diary : diaries) {
-            if (diary.getUsername() != null) {
-                List<Diary> diariesList = new ArrayList<>();
+            if (diary.getUsername()!= null) {
+                ArrayList<Diary> diariesList = new ArrayList<>();
                 diariesList.add(diary);
                 diaries = diariesList.toArray(diaries);
             }
