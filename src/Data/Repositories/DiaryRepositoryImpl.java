@@ -55,6 +55,11 @@ public class DiaryRepositoryImpl implements DiaryRepository {
         for (Diary diary1: diaries) {
             if (diary1.getUsername().equals(diary.getUsername())) {
                 diaries.remove(diary1);
+                count--;
+                break;
+            }
+            else {
+                throw new DiaryNotFoundException("Diary does not exist");
             }
         }
 
