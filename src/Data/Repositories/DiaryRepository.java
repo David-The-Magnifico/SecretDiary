@@ -1,5 +1,6 @@
 package Data.Repositories;
 
+import Data.Exceptions.UsernameAlreadyExistException;
 import Data.Model.Diary;
 import Data.Model.Entry;
 
@@ -8,7 +9,7 @@ import java.util.List;
 public interface DiaryRepository  {
     Diary findById(String username);
     Diary deleteById(int id);
-    Diary save (Diary diary);
+    Diary save (Diary diary) throws UsernameAlreadyExistException;
     List<Diary> findAll();
     Diary findById(int id);
     Entry findByUsername(Entry username);

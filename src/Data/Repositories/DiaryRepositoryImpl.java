@@ -1,9 +1,9 @@
 package Data.Repositories;
 
-import Data.exceptions.DiaryNotFoundException;
-import Data.exceptions.EntryNotFoundException;
-import Data.exceptions.UsernameAlreadyExistException;
-import Data.exception.InvalidUsernameException;
+import Data.Exceptions.DiaryNotFoundException;
+import Data.Exceptions.InvalidUsernameException;
+import Data.Exceptions.UsernameNotFoundException;
+import Data.Exceptions.UsernameAlreadyExistException;
 
 import Data.Model.Diary;
 import Data.Model.Entry;
@@ -23,23 +23,26 @@ public class DiaryRepositoryImpl implements DiaryRepository {
 
     @Override
     public Entry findByUsername(Entry username) {
-        int Username = 0;
-        Entry entry = new Entry(Username);
-        return Entry;
+        return null;
     }
+
 
     @Override
-    public Diary findByUsername(Diary username) {
-        Diary Diary = new Diary(username);
-        return Diary;
+    public Diary findByUsername(Diary username) throws InvalidUsernameException {
+        for (Diary diary : diaries) {
+            if (diary.getUsername().equals(username)) {
+                return Diary;
+            }
+            break;
+        }
+        throw new InvalidUsernameException("Username not found");
     }
-
     @Override
     public Diary findById(String username) {
         return null;
     }
     @Override
-    public Diary save(Diary diary) {
+    public Diary save(Diary diary) throws UsernameAlreadyExistException {
         Diary[] Diary = new Diary[0];
         for (Diary diary1 : Diary) {
             if (diary1.getUsername().equals(diary1.getUsername())) {
