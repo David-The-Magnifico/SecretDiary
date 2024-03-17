@@ -11,41 +11,60 @@ import Data.Model.Entry;
 import java.util.List;
 
 public class DiaryRepositoryImpl implements DiaryRepository {
+    private List<Diary> diaries = new ArrayList<>();
+    private long count = 0;
+
     @Override
     public List<Diary> findAll() {
-        return null;
+        return diaries;
     }
 
     @Override
     public Diary findById(int id) {
+        for (Diary diary : diaries) {
+            if (diary.getId() == id) {
+                return diary;
+            }
+        }
         return null;
     }
 
     @Override
     public Entry findByUsername(Entry username) {
+        for (Diary diary : diaries) {
+            for (Entry entry : diary.getEntries()) {
+                if (entry.getUsername().equals(username)) {
+                    return entry;
+                }
+            }
+        }
         return null;
     }
-
 
     @Override
     public Diary findByUsername(Diary username) throws InvalidUsernameException {
         for (Diary diary : diaries) {
             if (diary.getUsername().equals(username)) {
-                return Diary;
+                return diary;
             }
-            break;
         }
         throw new InvalidUsernameException("Username not found");
     }
+
     @Override
     public Diary findById(String username) {
+        for (Diary diary : diaries) {
+            if (diary.getUsername().equals(username)) {
+                return diary;
+            }
+        }
         return null;
     }
+
     @Override
     public Diary save(Diary diary) throws UsernameAlreadyExistException {
-        Diary[] Diary = new Diary[0];
-        for (Diary diary1 : Diary) {
-            if (diary1.getUsername().equals(diary1.getUsername())) {
+        for (Diary d : diaries) {
+            if (d.getUsername().equals(diary.getUsername())) {
                 throw new UsernameAlreadyExistException("Username already exists");
             }
         }
@@ -53,49 +72,52 @@ public class DiaryRepositoryImpl implements DiaryRepository {
         count++;
         return diary;
     }
+
     @Override
     public void delete(Diary diary) {
-        for (Diary diary1: diaries) {
-            if (diary1.getUsername().equals(diary.getUsername())) {
-                diaries.remove(diary1);
-                count--;
-                break;
-            }
-            else {
-                throw new DiaryNotFoundException("Diary does not exist");
+        diaries.remove(diary);
+    }
+
+    public Diary deleteById(int id) {
+        for (Diary diary : diaries) {
+            if (diary.getId() == id) {
+                diaries.remove(diary);
+                return diary;
             }
         }
-
-    }
-    public Diary deleteById(int id) {
-
         return null;
     }
+
     public void update(Diary diary) {
 
-
     }
+
     public void updateById(int id, Diary diary) {
 
     }
+
     @Override
     public long count() {
-        return count;
+        return diaries.size();
     }
+
     @Override
     public void delete(String username) {
-        Diary diary1 = findById(username);
-        if (diary1 == null) {
-            throw new UsernameNotFoundException("Username does not exist");
+        Diary diary = findById(username);
+        if (diary!= null) {
+            diaries.remove(diary);
         }
-        else {
-            diaries.remove(diary1);
-        }
-
     }
+
     @Override
     public Entry findByUsername(String username) {
-
-        return Entry;
+        for (Diary diary : diaries) {
+            for (Entry entry : diary.getEntries()) {
+                if (entry.getUsername().equals(username)) {
+                    return entry;
+                }
+            }
+        }
+        return null;
     }
 }
