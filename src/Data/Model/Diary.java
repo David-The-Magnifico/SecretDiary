@@ -17,11 +17,21 @@ public class Diary {
     public Diary(Diary username) {
     }
 
+    public Diary(String david) {
+    }
+
     public String getUsername() {
         return username;
     }
 
     public Entry[] getEntries() {
         return entries.toArray(new Entry[entries.size()]);
+    }
+
+    public void addEntry(Entry entry) {
+    }
+
+    public int getId(int id) {
+        return id;
     }
 }
