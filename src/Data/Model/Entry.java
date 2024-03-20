@@ -8,6 +8,7 @@ public class Entry {
     private String body;
     private LocalDateTime dateCreated = LocalDateTime.now();
     private String author;
+    private String username;
 
     public Entry(int id, String title, String body, String author) {
         this.id = id;
@@ -66,5 +67,9 @@ public class Entry {
                 ", dateCreated=" + dateCreated +
                 ", author='" + author + '\'' +
                 '}';
+    }
+
+    public Object getUsername(String username) {
+        return username;
     }
 }
