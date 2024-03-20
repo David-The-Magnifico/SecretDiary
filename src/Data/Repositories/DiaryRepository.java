@@ -19,4 +19,6 @@ public interface DiaryRepository  {
     void update(Diary diary);
 
     Entry findByUsername(String username);
+
+    void deleteByUserName(String userName);
 }
