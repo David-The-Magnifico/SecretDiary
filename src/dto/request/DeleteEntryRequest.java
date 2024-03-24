@@ -13,5 +13,8 @@ public class DeleteEntryRequest {
     public String getAuthor(){
         return author;
     }
+    public void setUsername(String username){
+        this.author = username;
+    }
 
 }
