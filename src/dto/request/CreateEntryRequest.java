@@ -13,6 +13,10 @@ public class CreateEntryRequest {
         this.body = body;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
 
 
 }
