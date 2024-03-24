@@ -3,6 +3,8 @@ package Controllers;
 import Data.Model.Diary;
 import Data.Model.Entry;
 
+import java.util.Collection;
+
 public class DiaryController {
     private Diary diary;
 
@@ -15,7 +17,7 @@ public class DiaryController {
         diary.addEntry(newEntry);
     }
 
-    public Entry[] getEntries() {
+    public Collection<? extends Entry> getEntries() {
         return diary.getEntries();
     }
 
