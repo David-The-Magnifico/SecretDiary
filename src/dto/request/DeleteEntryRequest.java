@@ -19,5 +19,8 @@ public class DeleteEntryRequest {
     public String getTitle(){
         return title;
     }
+    public void setTitle(String Title){
+        this.title = title;
+    }
 
 }
