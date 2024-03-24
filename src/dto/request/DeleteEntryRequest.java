@@ -5,5 +5,10 @@ public class DeleteEntryRequest {
     private String password;
     private String title;
 
+    public DeleteEntryRequest(String author, String password, String title){
+        this.author = author;
+        this.password = password;
+        this.title = title;
+    }
 
 }
