@@ -10,5 +10,8 @@ public class DeleteEntryRequest {
         this.password = password;
         this.title = title;
     }
+    public String getAuthor(){
+        return author;
+    }
 
 }
