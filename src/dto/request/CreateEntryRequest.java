@@ -21,6 +21,10 @@ public class CreateEntryRequest {
         this.title = title;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
 
 
 }
