@@ -17,9 +17,6 @@ public class Entry {
         this.author = author;
     }
 
-    public Entry(int username) {
-    }
-
     public int getId() {
         return id;
     }
@@ -59,17 +56,17 @@ public class Entry {
     public void setDateCreated(LocalDateTime dateCreated) {
         this.dateCreated = dateCreated;
     }
-    public String toString() {
-        return "Entry{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", body='" + body + '\'' +
-                ", dateCreated=" + dateCreated +
-                ", author='" + author + '\'' +
-                '}';
+
+    public String getUsername() {
+        return username;
     }
 
-    public Object getUsername(String username) {
-        return username;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return STR."Entry{id=\{id}, title='\{title}\{'\''}, body='\{body}\{'\''}, dateCreated=\{dateCreated}, author='\{author}\{'\''}\{'}'}";
     }
 }
