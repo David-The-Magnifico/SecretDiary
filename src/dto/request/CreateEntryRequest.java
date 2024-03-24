@@ -9,5 +9,10 @@ public class CreateEntryRequest {
         return body;
     }
 
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+
 
 }
