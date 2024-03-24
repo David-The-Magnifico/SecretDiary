@@ -3,7 +3,7 @@ package Services;
 import Data.Model.Diary;
 import Data.Repositories.DiaryRepository;
 
-public class DiaryAppService extends DiaryServices {
+public class DiaryAppService implements DiaryService {
     private final DiaryRepository diaryRepository;
 
     public DiaryAppService(DiaryRepository diaryRepository) {
@@ -16,6 +16,21 @@ public class DiaryAppService extends DiaryServices {
         Diary diary = new Diary(username);
         diaryRepository.save(diary);
         return diary;
+    }
+
+    @Override
+    public void registerDiaryUser(String username, String password) {
+
+    }
+
+    @Override
+    public Diary logIn(String username, String password) {
+        return null;
+    }
+
+    @Override
+    public void logOut(Diary diary) {
+
     }
 
     @Override
