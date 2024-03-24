@@ -25,6 +25,8 @@ public class CreateEntryRequest {
         return author;
     }
 
-
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
 }
