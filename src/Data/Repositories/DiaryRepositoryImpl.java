@@ -1,8 +1,7 @@
+
 package Data.Repositories;
 
-import Data.Exceptions.InvalidUsernameException;
 import Data.Exceptions.UsernameAlreadyExistException;
-
 import Data.Model.Diary;
 import Data.Model.Entry;
 
@@ -10,18 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DiaryRepositoryImpl implements DiaryRepository {
-    private List<Diary> diaries = new ArrayList<>();
-    private long count = 0;
+    private List<Diary> diaries;
 
-    @Override
-    public List<Diary> findAll() {
-        return diaries;
+    public DiaryRepositoryImpl() {
+        this.diaries = new ArrayList<>();
     }
 
     @Override
     public Diary findById(int id) {
         for (Diary diary : diaries) {
-            if (diary.getId(id) == id) {
+            if (diary.getId() == id) {
                 return diary;
             }
         }
@@ -30,9 +27,14 @@ public class DiaryRepositoryImpl implements DiaryRepository {
 
     @Override
     public Entry findByUsername(Entry username) {
+        return null;
+    }
+
+    @Override
+    public Entry findByUsername(String username) {
         for (Diary diary : diaries) {
             for (Entry entry : diary.getEntries()) {
-                if (entry.getUsername(String.valueOf(username)).equals(username)) {
+                if (entry.getUsername().equals(username)) {
                     return entry;
                 }
             }
@@ -40,58 +42,21 @@ public class DiaryRepositoryImpl implements DiaryRepository {
         return null;
     }
 
-    public Diary findByUsername(Diary username) throws InvalidUsernameException {
-        for (Diary diary : diaries) {
-            if (diary.getUsername().equals(username)) {
-                return diary;
-            }
-        }
-        throw new InvalidUsernameException("Username not found");
-    }
-
-    @Override
-    public Diary findById(String username) {
-        for (Diary diary : diaries) {
-            if (diary.getUsername().equals(username)) {
-                return diary;
-            }
-        }
-        return null;
-    }
 
     @Override
     public Diary save(Diary diary) throws UsernameAlreadyExistException {
-        for (Diary d : diaries) {
-            if (d.getUsername().equals(diary.getUsername())) {
-                throw new UsernameAlreadyExistException("Username already exists");
+        for (Diary existingDiary : diaries) {
+            if (existingDiary.getUsername().equals(diary.getUsername())) {
+                throw new UsernameAlreadyExistException("Username already exists: " + diary.getUsername());
             }
         }
         diaries.add(diary);
-        count++;
         return diary;
     }
 
     @Override
-    public void delete(Diary diary) {
-        diaries.remove(diary);
-    }
-
-    public Diary deleteById(int id) {
-        for (Diary diary : diaries) {
-            if (diary.getId(id) == id) {
-                diaries.remove(diary);
-                return diary;
-            }
-        }
-        return null;
-    }
-
-    public void update(Diary diary) {
-
-    }
-
-    public void updateById(int id, Diary diary) {
-
+    public List<Diary> findAll() {
+        return diaries;
     }
 
     @Override
@@ -101,29 +66,38 @@ public class DiaryRepositoryImpl implements DiaryRepository {
 
     @Override
     public void delete(String username) {
-        Diary diary = findById(username);
-        if (diary!= null) {
-            diaries.remove(diary);
-        }
+        diaries.removeIf(diary -> diary.getUsername().equals(username));
     }
 
     @Override
-    public Entry findByUsername(String username) {
-        for (Diary diary : diaries) {
-            for (Entry entry : diary.getEntries()) {
-                if (entry.getUsername(username).equals(username)) {
-                    return entry;
-                }
-            }
-        }
+    public Diary findById(String username) {
         return null;
     }
 
     @Override
-    public void deleteByUserName(String userName) {
-        Diary diary = findById(userName);
-        if (diary!= null) {
-            diaries.remove(diary);
+    public void deleteById(int id) {
+        diaries.removeIf(diary -> diary.getId() == id);
+    }
+
+    @Override
+    public void delete(Diary diary) {
+        diaries.remove(diary);
+    }
+
+    @Override
+    public void update(Diary diary) {
+        for (Diary existingDiary : diaries) {
+            if (existingDiary.getId() == diary.getId()) {
+                existingDiary.setUsername(diary.getUsername());
+                existingDiary.setEntries(diary.getEntries());
+
+                break;
+            }
         }
+    }
+
+    @Override
+    public void deleteByUsername(String username) {
+        diaries.forEach(diary -> diary.getEntries().removeIf(entry -> entry.getUsername().equals(username)));
     }
 }
