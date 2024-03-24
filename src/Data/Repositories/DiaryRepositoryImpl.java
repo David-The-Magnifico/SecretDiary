@@ -42,6 +42,11 @@ public class DiaryRepositoryImpl implements DiaryRepository {
         return null;
     }
 
+    @Override
+    public void deleteByUserName(String userName) {
+
+    }
+
 
     @Override
     public Diary save(Diary diary) throws UsernameAlreadyExistException {

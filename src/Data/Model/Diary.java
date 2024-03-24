@@ -1,6 +1,7 @@
 package Data.Model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Diary {
@@ -29,7 +30,7 @@ public class Diary {
         this.username = username;
     }
 
-    public Entry[] getEntries() {
+    public Collection<? extends Entry> getEntries() {
         return List.of(entries.toArray(new Entry[0]));
     }
 
