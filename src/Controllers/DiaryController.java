@@ -12,5 +12,10 @@ public class DiaryController {
         this.diary = diary;
     }
 
+    public void addEntry(int id, String title, String body, String author) {
+        Entry newEntry = new Entry(id, title, body, author);
+        diary.addEntry(newEntry);
+    }
+
     
 }
