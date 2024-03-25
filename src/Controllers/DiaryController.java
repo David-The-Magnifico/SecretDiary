@@ -8,5 +8,9 @@ import java.util.Collection;
 public class DiaryController {
     private Diary diary;
 
+    public DiaryController(Diary diary) {
+        this.diary = diary;
+    }
+
     
 }
