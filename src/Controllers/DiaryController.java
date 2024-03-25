@@ -29,5 +29,7 @@ public class DiaryController {
         diary.setLocked(true);
     }
 
-    
+    public void unlockDiary() {
+        diary.setLocked(false);
+    }
 }
