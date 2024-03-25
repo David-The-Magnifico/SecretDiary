@@ -1,4 +1,4 @@
-package src;
+import src.Diary;
 
 import javax.swing.JOptionPane;
 
@@ -27,7 +27,7 @@ public class MainApplication2 {
                     break;
                 case 2:
                     username = JOptionPane.showInputDialog("Enter the username of the diary you want to select: ");
-                    diary = Diary.findDiaryByUsername(username);
+                    diary = src.Diary.findDiaryByUsername(username);
                     if (diary != null) {
                         password = JOptionPane.showInputDialog("Enter the password of the diary: ");
                         diary.unlockDiary(password);
