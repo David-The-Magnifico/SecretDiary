@@ -17,5 +17,9 @@ public class DiaryController {
         diary.addEntry(newEntry);
     }
 
+    public Collection<? extends Entry> getEntries() {
+        return diary.getEntries();
+    }
+
     
 }
