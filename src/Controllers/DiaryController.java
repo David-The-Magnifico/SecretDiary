@@ -21,5 +21,9 @@ public class DiaryController {
         return diary.getEntries();
     }
 
+    public boolean isDiaryLocked() {
+        return diary.isLocked();
+    }
+
     
 }
